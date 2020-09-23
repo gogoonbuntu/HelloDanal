@@ -1,0 +1,24 @@
+header, footer, #bodyWrapper {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+}
+
+header {
+	height:50px;
+	font-size: 20px;
+}
+
+#bodyWrapper {
+	top: 50px;
+	display: table;
+	
+}
+
+#bodyWrapper>button {
+	margin: 0 auto;
+}
+
+footer {
+	bottom: 0;
+}
