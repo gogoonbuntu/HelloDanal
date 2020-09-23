@@ -22,3 +22,9 @@ header {
 footer {
 	bottom: 0;
 }
+
+@media ( max-width: 768px ) {
+	body { 
+		color: red; 
+	}
+}
