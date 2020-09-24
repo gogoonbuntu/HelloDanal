@@ -1,8 +1,34 @@
+header {
+	margin:20px 0;
+}
 .row {
-	margin: 5px 20px
+	margin: 5px 5px
 }
 
+tr {
+	height:50px;
+}
+td {
+	text-align: left;
+}
 .title {
 	font-size: 1.2em;
-	padding-left: 10px;
+}
+.like{
+	font-size: 0.9em;
+	margin-left:10px;
+}
+.row {
+	margin-bottom: 5px;
+	background-color: #EEE;
+}
+td>img {
+	width: 90px;
+	height: 90px;
+}
+.bottomline {
+	border-bottom: 1px #555 solid;
+}
+#bodyWrapper {
+	margin-top: 10px;
 }
