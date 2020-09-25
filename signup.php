@@ -57,9 +57,6 @@
 						<td>
 				<input type="text" placeholder="010xxxxxxxx" onchange="numCheck(this)">
 			</td>
-			<td id="numCheck">
-				특수기호 없이 입력해주세요
-			</td>
 		</tr>
 	</tbody>
 </table>
@@ -85,21 +82,8 @@
 	}
 
 	function numCheck(a){
-		let pureValue = a.value.replace(/-/g , "");
-		pureValue = pureValue.replace(/,/g , "");
-		pureValue = pureValue.replace(/ /g , "");
-		pureValue = pureValue.replace(/_/g , "");
-		let n = Number(pureValue);
-		let checkMsg = document.getElementById("numCheck");
-		console.log(n);
-		if(pureValue.charAt(0)!='0'
-			|| n<1000000001
-			|| n>1799999999){
-			checkMsg.innerHTML="잘못된 전화번호입니다.";
-		}
-		else {
-			checkMsg.innerHTML="정상 번호입니다.";
+		if(Number(a.value)){
+			
 		}
 	}
-
 </script>
