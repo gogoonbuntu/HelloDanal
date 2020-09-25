@@ -1,9 +1,12 @@
+<?php   
+include 'dbconn.php'; ?>
+
 
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8" />
 	<title>회원가입 및 로그인 사이트</title>
- <style>
+<style>
    {
   margin: 0 auto;
   padding:0;
