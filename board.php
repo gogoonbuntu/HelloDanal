@@ -1,7 +1,7 @@
 <?php
 	include 'dbconn.php';
 	$sql = 'select * from board';
-	$result = mysqli_query($conn, $sql);
+	$result = mq($sql);
 ?>
 <!DOCTYPE html>
 <html>
