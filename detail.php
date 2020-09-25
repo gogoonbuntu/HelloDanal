@@ -7,14 +7,21 @@
   $bno = 1; /* bno함수에 idx값을 받아와 넣음*/ 
 //'.$bno.'
 
-	$sql = 'select * from board where idx ='.$bno.''; 
-	$result= mysqli_query($conn, $sql);
-  $result2 = mysqli_fetch_array($result);
-  $viewcount = $result2['viewcount'] + 1;
-  $sql2 = 'update board set viewcount = '.$viewcount.' where idx = '.$bno.'';
-  $result= mysqli_query($conn, $sql2);
-  $result= mysqli_query($conn, $sql);
-  $board = mysqli_fetch_array($result);
+		$viewcount = mysqli_fetch_array(mq("select * from board where idx ='".$bno."'"));
+		$viewcount = $viewcount['viewcount'] + 1;
+		$fet = mq("update board set viewcount = '".$viewcount."' where idx = '".$bno."'");
+		$sql = mq("select * from board where idx='".$bno."'"); /* 받아온 idx값을 선택 */
+		$board = $sql->fetch_array();
+
+
+	//$sql = 'select * from board where idx ='.$bno.''; 
+	//$result= mysqli_query($conn, $sql);
+  //$result2 = mysqli_fetch_array($result);
+  //$viewcount = $result2['viewcount'] + 1;
+  //$sql2 = 'update board set viewcount = '.$viewcount.' where idx = '.$bno.'';
+  //$result= mysqli_query($conn, $sql2);
+  //$result= mysqli_query($conn, $sql);
+  //$board = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +60,7 @@
 						<tr>
 
 							<th colspan="3"	style="background-color: #eeeeee; text-align: center;"> 
-              <?php echo "<img src=".$board['imgsrc']."class=\"img-responsive\" alt=\"Responsive image\">" ?>  </th>
+              <?php echo '<img src="'.$board['imgsrc'].'" class=\"img-responsive\" alt=\"Responsive image\">' ?>  </th>
 
 						</tr>
 
