@@ -1,3 +1,16 @@
+<?php
+	include 'dbconn.php';
+  $bno=$_GET['idx'];
+  $viewcount = mysqli_fetch_array(mq("select * from board where idx ='".$bno."'"));
+	$viewcount = $viewcount['viewcount'] + 1;
+
+  $fet = mq("update board set viewcount = '".$viewcount."' where idx = '".$bno."'");
+	$sql = mq("select * from board where idx='".$bno."'"); 
+	$board = $sql->fetch_array();
+  
+
+	$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html>
  <head>
@@ -8,8 +21,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
- 
-
     <title>Hello, world!</title>
   </head>
   <body>
@@ -19,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
-   
+
 
 		<div id="bodyWrapper">
 
@@ -49,7 +60,7 @@
 
 							<td>제목</td>	
   
-							<td colspan="2">중고 거래합니다</td>
+							<td colspan="2"><?php echo $board['title']; ?></td>
 
 						</tr>
 
@@ -57,7 +68,7 @@
 
 							<td>작성자</td>	
 
-							<td colspan="2">다날이</td>
+							<td colspan="2"><?php echo $board['author']; ?></td>
 
 						</tr>
 
@@ -65,7 +76,7 @@
 
 							<td>작성일</td>	
 
-							<td colspan="2">2020-09-24</td>
+							<td colspan="2"><?php echo $board['time']; ?></td>
 
 						</tr>
 
@@ -73,7 +84,7 @@
 
 							<td>가격</td>	
 
-							<td colspan="2">20000</td>
+							<td colspan="2"><?php echo $board['price']; ?></td>
 
 						</tr>
 
@@ -82,7 +93,7 @@
 							<td>내용</td>	
 
 							<td colspan="2" style="min-height: 200px; text-align: left;">
-                안녕하세요. 키보드를 2만원에 팝니다. 000-0000-0000으로 연락 주세요
+                <?php echo $board['contents']; ?>
               </td>
 
 						</tr>
@@ -98,8 +109,8 @@
       <div class="col"></div>
       <div class="col"></div>
 			<div class="col-1"><a href = "board.html" class="btn btn-primary">목록</a></div>
-      <div class="col-1"><a href="#" class="btn btn-primary">수정</a></div>
-      <div class="col-1"><a href="#" class="btn btn-primary">삭제</a></div>
+      <div class="col-1"><a href="modify.php?idx=<?php echo $board['idx']; ?>" class="btn btn-primary">수정</a></div>
+      <div class="col-1"><a href="delete.php?idx=<?php echo $board['idx']; ?>" class="btn btn-primary">삭제</a></div>
     </div>
 	
 
