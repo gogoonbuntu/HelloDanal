@@ -1,15 +1,20 @@
 <?php
 	include 'dbconn.php';
-  $bno=$_GET['idx'];
-  $viewcount = mysqli_fetch_array(mq("select * from board where idx ='".$bno."'"));
-	$viewcount = $viewcount['viewcount'] + 1;
 
-  $fet = mq("update board set viewcount = '".$viewcount."' where idx = '".$bno."'");
-	$sql = mq("select * from board where idx='".$bno."'"); 
-	$board = $sql->fetch_array();
-  
+ 
+  //$bno=$_GET['idx'];
+ 
+  $bno = 1; /* bno함수에 idx값을 받아와 넣음*/ 
+//'.$bno.'
 
-	$result = mysqli_query($conn, $sql);
+	$sql = 'select * from board where idx ='.$bno.''; 
+	$result= mysqli_query($conn, $sql);
+  $result2 = mysqli_fetch_array($result);
+  $viewcount = $result2['viewcount'] + 1;
+  $sql2 = 'update board set viewcount = '.$viewcount.' where idx = '.$bno.'';
+  $result= mysqli_query($conn, $sql2);
+  $result= mysqli_query($conn, $sql);
+  $board = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +53,7 @@
 						<tr>
 
 							<th colspan="3"	style="background-color: #eeeeee; text-align: center;"> 
-                <img src="..." class="img-responsive" alt="Responsive image"></th>
+              <?php echo "<img src=".$board['imgsrc']."class=\"img-responsive\" alt=\"Responsive image\">" ?>  </th>
 
 						</tr>
 
@@ -59,7 +64,7 @@
             <tr>
 
 							<td>제목</td>	
-  
+              
 							<td colspan="2"><?php echo $board['title']; ?></td>
 
 						</tr>
@@ -76,15 +81,15 @@
 
 							<td>작성일</td>	
 
-							<td colspan="2"><?php echo $board['time']; ?></td>
+							<td colspan="2"><?php echo $board['starttime']; ?></td>
 
 						</tr>
 
             <tr>
 
-							<td>가격</td>	
+							<td>조회수</td>	
 
-							<td colspan="2"><?php echo $board['price']; ?></td>
+							<td colspan="2"><?php echo $board['viewcount']; ?></td>
 
 						</tr>
 
@@ -93,7 +98,7 @@
 							<td>내용</td>	
 
 							<td colspan="2" style="min-height: 200px; text-align: left;">
-                <?php echo $board['contents']; ?>
+                <?php echo $board['content']; ?>
               </td>
 
 						</tr>
