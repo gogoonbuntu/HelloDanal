@@ -82,10 +82,8 @@
 	}
 
 	function numCheck(a){
-		if(a.value.charAt(0)!='0'
-			&& Number(a.value)<1000000001
-			&& Number(a.value)>1799999999){
-			document.getElementById("numCheck").innerHTML="잘못된 전화번호입니다.";
+		if(Number(a.value)){
+			
 		}
 	}
 </script>

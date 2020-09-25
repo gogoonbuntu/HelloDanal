@@ -47,40 +47,11 @@
 				  .'<span class="like">♡<span class="count">'
 				  .$row['like']
 				  .'</span></span></td></tr>'
+				  .'<tr class="bottomline"><td class="description">'
+				  .$row['content']
+				  .'</td></tr>' ;
 			}
 		?>
-			<tr>
-				<td rowspan="2">
-					<img src="https://avatars1.githubusercontent.com/u/34636395?s=460&u=a9116612818816cbb214cfc029aa2ed3f736aed4&v=4">
-				</td>
-				<td class="title">
-					오끼참치
-					<span class="like">
-						♡<span class="count">14</span>
-					</span>
-				</td>
-			</tr>
-			<tr class="bottomline">
-				<td class="description">
-					이건 맛의 대 참치! 이런 맛은 못참지!
-				</td>
-			</tr>
-			<tr>
-				<td rowspan="2">
-					<img src="https://avatars1.githubusercontent.com/u/34636395?s=460&u=a9116612818816cbb214cfc029aa2ed3f736aed4&v=4">
-				</td>
-				<td class="title">
-					남포원 설렁탕
-					<span class="like">
-						♡<span class="count">14</span>
-					</span>
-				</td>
-			</tr>
-			<tr class="bottomline">
-				<td class="description">
-					설렁탕이라고 절대 설렁설렁 만들지 않아요.
-				</td>
-			</tr>
 		</tbody>
 	</table>
 
