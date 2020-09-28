@@ -3,7 +3,7 @@
 	$sql = 'select id from danal_id';
 	$result = mq($sql);
 ?>
-
+<form method="post" action="signup_process.php">
 <table>
 	<tbody>
 		<tr>
@@ -22,7 +22,7 @@
 				비밀번호
 			</td>
 			<td>
-				<input type="password" id="pswd" placeholder="password" onchange="pswdCheck('re')">
+				<input type="password" id="pswd" placeholder="password" onchange="pswdCheck(this)">
 			</td>
 			
 		</tr>
@@ -69,6 +69,8 @@
 		</tr>
 	</tbody>
 </table>
+</form>
+
 <button>제출</button>
 <button>취소</button>
 <script>
@@ -78,23 +80,35 @@
 	let idList = new Array();
 	<?php
 	while($row = mysqli_fetch_array($result)){
-		?>
-		idList.push("<?php echo $row['id']?>");
+	?>
+	idList.push("<?php echo $row['id']?>");
 	<?php
 	}?>
 	function pswdCheck(a){
+		let checkMsg = document.getElementById("pswdCheck");
 		if(a.getAttribute('id')=="pswd"){
 			if( a.value!="" 
 				&& a.value==document.getElementById("repswd").value){
-				document.getElementById("pswdCheck").innerHTML="√";
+				console.log(a.value);
+				console.log(document.getElementById("repswd").value);
+				checkMsg.innerHTML="√";
+			}
+			else {
+				checkMsg.innerHTML="X";
 			}
 		}
-		else{
+		else {
 			if( a.value!="" 
 				&& a.value==document.getElementById("pswd").value){
-				document.getElementById("pswdCheck").innerHTML="√";
+				console.log(a.value);
+				console.log(document.getElementById("pswd").value);
+				checkMsg.innerHTML="√";
+			}
+			else {
+				checkMsg.innerHTML="X";
 			}
 		}
+
 	}
 
 	function idCheck(a){
