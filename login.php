@@ -74,6 +74,7 @@ table
         	<tr>
            		<td colspan="3" align="center" class="mem"> 
               	<a href="member.php">회원가입 하시겠습니까?</a>
+                <a href="member_find.php">계정찾기</a>
            </td>
         </tr>
     </table>
