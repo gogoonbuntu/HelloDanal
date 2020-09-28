@@ -12,7 +12,7 @@
 	$password = $_POST['userpw'];
 	$sql = mq('select * from user where id="'.$_POST['userid'].'"');
 
-	$member = $sql->fetch_array();
+	$member = $sql->fetch_array(); // 입력된 id와 db에 있는 id가 같은 경우
 
   if($_POST["userpw"] == $member['pswd'])
   {
