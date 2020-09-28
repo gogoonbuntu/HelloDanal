@@ -69,8 +69,8 @@
 		</tr>
 	</tbody>
 </table>
-<button onclick="submit();">제출</button>
-<button>취소</button>
+<button onclick="goSubmit();">제출</button>
+<button onclick="goback();">취소</button>
 </form>
 
 
@@ -93,9 +93,11 @@
 				console.log(a.value);
 				console.log(document.getElementById("repswd").value);
 				checkMsg.innerHTML="√";
+				pswdOK=1;
 			}
 			else {
 				checkMsg.innerHTML="X";
+				pswdOK=0;
 			}
 		}
 		else {
@@ -104,9 +106,11 @@
 				console.log(a.value);
 				console.log(document.getElementById("pswd").value);
 				checkMsg.innerHTML="√";
+				pswdOK=1;
 			}
 			else {
 				checkMsg.innerHTML="X";
+				pswdOK=0;
 			}
 		}
 
@@ -117,10 +121,12 @@
 		for(let id of idList){
 			if(id==a.value){
 				checkMsg.innerHTML="인증!"
+				idOK=1;
 
 			}
 			else {
 				checkMsg.innerHTML="미인증"
+				idOK=0;
 			}
 		}
 	}
@@ -137,10 +143,24 @@
 			|| n<1000000001
 			|| n>1799999999){
 			checkMsg.innerHTML="잘못된 전화번호입니다.";
+			numOK=0;
 		}
 		else {
 			checkMsg.innerHTML="정상 번호입니다.";
+			numOK=1;
 		}
 	}
-
+	
+	function goSubmit(){
+	    if(numOK && pswdOK && idOK){
+	        document.getElementById("signupForm").submit();
+	    }
+	    else {
+	        alert("아이디, 비번, 폰번을 확인해주세요.");
+	    }
+	}
+    
+    function goback(){
+        window.location.replace('login.php');
+    }
 </script>
