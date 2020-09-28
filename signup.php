@@ -3,7 +3,7 @@
 	$sql = 'select id from danal_id';
 	$result = mq($sql);
 ?>
-<form method="post" action="signup_process.php">
+<form method="post" action="signupProcess.php" id="signupForm">
 <table>
 	<tbody>
 		<tr>
@@ -11,7 +11,7 @@
 				다날 아이디
 			</td>
 			<td>
-				<input type="text" placeholder="ex) danal1234" onchange="idCheck(this)">
+				<input type="text" name="id" placeholder="ex) danal1234" onchange="idCheck(this)">
 			</td>
 			<td id="idCheck">
 				미인증
@@ -22,7 +22,7 @@
 				비밀번호
 			</td>
 			<td>
-				<input type="password" id="pswd" placeholder="password" onchange="pswdCheck(this)">
+				<input type="password" name="pswd" id="pswd" placeholder="password" onchange="pswdCheck(this)">
 			</td>
 			
 		</tr>
@@ -42,7 +42,7 @@
 				직급
 			</td>
 			<td>
-				<select name="level" >
+				<select name="level" name="level" form="signupForm">
 					<option value="none">=== 선택 ===</option>
 					<option value="1">사원</option>
 					<option value="2">대리</option>
@@ -61,7 +61,7 @@
 				전화번호
 			</td>
 						<td>
-				<input type="text" placeholder="010xxxxxxxx" onchange="numCheck(this)">
+				<input type="text" name="phonenumber" placeholder="010xxxxxxxx" onchange="numCheck(this)">
 			</td>
 			<td id="numCheck">
 				특수기호 없이 입력해주세요
@@ -69,10 +69,11 @@
 		</tr>
 	</tbody>
 </table>
+<button onclick="submit();">제출</button>
+<button>취소</button>
 </form>
 
-<button>제출</button>
-<button>취소</button>
+
 <script>
 	let idOK=0;
 	let pswdOK=0;
