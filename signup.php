@@ -4,8 +4,6 @@
 	$result = mq($sql);
 ?>
 
-
-
 <table>
 	<tbody>
 		<tr>
