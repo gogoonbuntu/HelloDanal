@@ -1,3 +1,6 @@
+<?php
+	include 'dbconn.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +12,12 @@
   <body>
 
 	  	<header>
-			Hello Danal ! 
+			Hello Danal ! </br>
+      <?php
+        if(isset($_SESSION['userid'])){
+		echo "<h2>{$_SESSION['userid']} 님 환영합니다.</h2>";
+        }
+      ?>
 	  	</header>
 
 		<div id="bodyWrapper">
