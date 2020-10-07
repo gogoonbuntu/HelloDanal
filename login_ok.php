@@ -1,8 +1,10 @@
-<meta charset="utf-8" />
 <?php	
 	include 'dbconn.php';
 	include "password.php";
-
+    if(!isset($_POST['userid']) || !isset($_POST['userpw'])) exit;
+    
+    $user_id = $_POST["userid"];
+    
 	//POST로 받아온 아이다와 비밀번호가 비었다면 알림창을 띄우고 전 페이지로 돌아갑니다.
 	if($_POST["userid"] == "" || $_POST["userpw"] == ""){
 		echo '<script> alert("아이디나 패스워드 입력하세요"); history.back(); </script>';
@@ -16,9 +18,10 @@
 
   if($_POST["userpw"] == $member['pswd'])
   {
-    $_SESSION['userid'] = $member["id"];
-  
-    echo "<script>alert('로그인되었습니다.'); location.href='index.html';</script>";
+      
+    setcookie('user_id',$user_id,time()+(86400*30),'/');
+
+    echo "<script>alert('".$_COOKIE["user_id"]."님 로그인되었습니다.'); location.href='board.php'; </script>";
   }
 
   else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다

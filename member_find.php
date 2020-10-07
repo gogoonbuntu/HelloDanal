@@ -1,7 +1,7 @@
 <?php 
   include "dbconn.php";
-  if(isset($_SESSION['userid'])){
-    echo "<script>alert('잘못된 접근입니다.'); history.back();</script>";
+  if(isset($_COOKIE['userid'])){
+    echo "<script>alert('".$_COOKIE['userid']."님은 이미 로그인되어 있습니다.'); history.back();</script>";
   }else{ ?>
 <!DOCTYPE html>
 <head>
@@ -9,15 +9,17 @@
 <title>회원가입 폼</title>
 <style>
 * {margin: 0 auto;}
+
 a {color:#333; text-decoration: none;}
-.find {text-align:center; width:500px; margin-top:30px; }
+
+.findbox {text-align:center; width:500px; margin-top:30px; }
 </style>
 </head>
 <body>
-  <div class="find">
+  <div class="findbox">
     <form method="post" action="member_find_id.php">
       <h1>회원계정 찾기</h1>
-      <p><a href="/">홈으로</a></p>
+      <p><a href="login.php">로그인으로</a></p>
         <fieldset>
           <legend>아이디 찾기</legend>
             <table>
@@ -28,9 +30,9 @@ a {color:#333; text-decoration: none;}
             </table>
           <input type="submit" value="아이디 찾기" />
       </fieldset>
-    </form>
+     </form>
   </div>
-  <div class="find">
+  <div class="findbox">
       <form method="post" action="member_find_pw.php">
         <fieldset>
           <legend>비밀번호 찾기</legend>
