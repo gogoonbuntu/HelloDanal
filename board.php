@@ -45,7 +45,7 @@
 				  .'"> </td><td class="title">'
 				  .$row['title']
 				  .'<span class="like">♡<span class="count">'
-				  .$row['like']
+				  .$row['likes']
 				  .'</span></span></td></tr>'
 				  .'<tr class="bottomline"><td class="description">'
 				  .$row['content']

@@ -1,18 +1,40 @@
+.color .red    {background: #fa5a5a;}
+.color .yellow {background: #f0d264;}
+.color .green  {background: #82c8a0;}
+.color .cyan   {background: #7fccde;}
+.color .blue   {background: #6698cb;}
+.color .purple {background: #cb99c5;}
+
+iframe {
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
 header, footer, #bodyWrapper {
 	text-align: center;
 	width: 100%;
 	position: absolute;
+	display: table; 
+	left: 0;
+	right: 0;
 }
 
 header {
-	height:50px;
-	font-size: 20px;
+	height:20%;
+	font-size: 40px;
+	overflow: hidden;
 }
 
+#greeting {
+	display: table-cell; 
+	vertical-align: middle
+}
 #bodyWrapper {
-	top: 50px;
+	top: 20%;
+	height:70%;
 	display: table;
-	
+	background : #eaedf1;
 }
 
 #bodyWrapper>button {
@@ -21,6 +43,12 @@ header {
 
 footer {
 	bottom: 0;
+	font-size:10px;
+	height: 10%;
+	display: table;
+}
+footer>div{
+	display: table-cell;
 }
 
 hr { 
@@ -34,7 +62,6 @@ hr {
 } 
 
 @media ( max-width: 768px ) {
-	body { 
-		color: red; 
-	}
+
 }
+

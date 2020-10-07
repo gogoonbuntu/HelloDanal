@@ -1,7 +1,12 @@
 <?php
-	$conn = mysqli_connect("db4free.net", "tmddud333", "1q2w3edaidai", "tmddud333");
 
-  $db = new mysqli("db4free.net", "tmddud333", "1q2w3edaidai", "tmddud333"); 
+    $host = "localhost";
+    $id = "id14957377_danal";
+    $pw = "!Q2w3e1q2w3e";
+    $dbname = "id14957377_tmddud333";
+	$conn = mysqli_connect($host, $id, $pw, $dbname);
+
+  $db = new mysqli($host, $id, $pw, $dbname);
 	//$db->set_charset("utf8");
 
 	function mq($sql)

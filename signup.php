@@ -75,6 +75,7 @@
 
 
 <script>
+
 	let idOK=0;
 	let pswdOK=0;
 	let numOK=0;
@@ -150,7 +151,7 @@
 			numOK=1;
 		}
 	}
-	
+
 	function goSubmit(){
 	    if(numOK && pswdOK && idOK){
 	        document.getElementById("signupForm").submit();
@@ -161,6 +162,6 @@
 	}
     
     function goback(){
-        window.location.replace('login.php');
+        window.location.replace('login.php');		
     }
 </script>
