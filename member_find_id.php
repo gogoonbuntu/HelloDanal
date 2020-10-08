@@ -1,4 +1,4 @@
-<?php
+2<?php
 include "dbconn.php";
 if($_POST["phone"] == ""){
 		echo '<script> alert("항목을 입력하세요"); history.back(); </script>';

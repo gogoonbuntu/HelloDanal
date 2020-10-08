@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8" />
-<title>회원가입 폼</title>
+<title>비밀번호 변경</title>
 <style>
 * {margin: 0 auto;}
 

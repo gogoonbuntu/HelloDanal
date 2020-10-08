@@ -40,7 +40,7 @@
                   <select name="hier_high" id="hier_high">
                     <optgroup label="선택">
                       <option value=0>전체</option>
-                      <option value=6>이사</option>
+                      <option value=6>임원</option>
                       <option value=5>부장</option>
                       <option value=4>차장</option>
                       <option value=3>과장</option>
@@ -52,7 +52,7 @@
                   <select name="hier_low" id="hier_low">
                     <optgroup label="선택">
                       <option value=0>전체</option>
-                      <option value=6>이사</option>
+                      <option value=6>임원</option>
                       <option value=5>부장</option>
                       <option value=4>차장</option>
                       <option value=3>과장</option>
