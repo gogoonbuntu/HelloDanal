@@ -21,45 +21,48 @@ header, footer, #bodyWrapper {
 }
 
 header {
-	height:20%;
-	font-size: 40px;
-	overflow: hidden;
+	top:0;
+	height: 30px ;
+	padding-top: 10px;
+	font-size: 15px;
 }
-
-#greeting {
-	display: table-cell; 
-	vertical-align: middle
-}
-#bodyWrapper {
-	top: 20%;
-	height:70%;
-	display: table;
-	background : #eaedf1;
-}
-
-#bodyWrapper>button {
-	margin: 0 auto;
-}
-
 footer {
-	bottom: 0;
-	font-size:10px;
-	height: 10%;
+	bottom:0;
+	height: 60px;
+	background-color: #F0BBBB ;
 	display: table;
 }
-footer>div{
+.naviMenu {
 	display: table-cell;
+	vertical-align: middle;
+	font-size: 13px;
+	opacity:0.4;
+}
+.naviMenu.selected {
+	opacity:1;
+	font-weight:bold;
+}
+.naviMenu>img{
+	width: 30px;
+}
+.title_j{
+	background-color: #F0E4BB ;
+}
+.title_m{
+	background-color: #FFC398 ;
+}
+.title_b{
+	background-color: #FFA1A1 ;
+}
+.title_n{
+	background-color: #F3F3F3 ;
 }
 
-hr { 
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-} 
+#bodyWrapper {
+	top: 40px;
+	overflow: hidden;
+	bottom: 60px;
+}
 
 @media ( max-width: 768px ) {
 

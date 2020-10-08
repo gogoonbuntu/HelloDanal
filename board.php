@@ -32,10 +32,6 @@
 </head>
 
 <body>
-	<header>
-		중고장터
-	</header>
-
 	<table id="bodyWrapper">
 		<tbody>
 		<?php
@@ -54,11 +50,6 @@
 		?>
 		</tbody>
 	</table>
-
-	<footer>
-		20년 9월 특채 신입 프로젝트</br>
-		tmddud333@danal.co.kr
-	</footer>
 	<script src="script.js">
 	</script>
 </body>
