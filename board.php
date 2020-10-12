@@ -11,14 +11,9 @@
 	<meta charset="euc-kr">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	 crossorigin="anonymous">
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	 crossorigin="anonymous">
-	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	 crossorigin="anonymous">
 	</script>
@@ -36,34 +31,33 @@
 		<tbody>
 		</tbody>
 	</table>
-	<script src="script.js">
-	</script>
+
+	<form>
+		<input type="hidden" name="type" value="0">
+	</form>
 </body>
 
 </html>
 
 <script>
-let boardType=0;
-typeChange();
 /* 
  * 0: 중고장터
  * 1: 맛집리뷰
  * 2: 번개모임
  * 3: 내 페이지
  */
-function typeChange(){
-	switch(boardType){
-		case 0: 
-		
-		document.getElementsByTagName("tbody")[0].innerHTML="
-				<?php
-			while($row = mysqli_fetch_array($result)) {
-		?>
-		<?php
-			}
-		?>" ;
-	}
+$.ajax({
+		url: "boardType.php",
+		type: "post",
+		data: $("form").serialize(),
+		success: function(data) {
+			$("tbody").append(data);
+		},
+		error: function(err) {
+			alert("err");
+		}
+});
+function typeChange(){			
 }
-
-
+typeChange();
 </script>
