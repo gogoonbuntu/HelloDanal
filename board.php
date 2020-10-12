@@ -34,20 +34,6 @@
 <body>
 	<table id="bodyWrapper">
 		<tbody>
-		<?php
-			while($row = mysqli_fetch_array($result)) {
-  				echo '<tr><td rowspan="2"><img src="'
-				  .$row['imgsrc']
-				  .'"> </td><td class="title">'
-				  .$row['title']
-				  .'<span class="like">♡<span class="count">'
-				  .$row['likes']
-				  .'</span></span></td></tr>'
-				  .'<tr class="bottomline"><td class="description">'
-				  .$row['content']
-				  .'</td></tr>' ;
-			}
-		?>
 		</tbody>
 	</table>
 	<script src="script.js">
@@ -55,3 +41,29 @@
 </body>
 
 </html>
+
+<script>
+let boardType=0;
+typeChange();
+/* 
+ * 0: 중고장터
+ * 1: 맛집리뷰
+ * 2: 번개모임
+ * 3: 내 페이지
+ */
+function typeChange(){
+	switch(boardType){
+		case 0: 
+		
+		document.getElementsByTagName("tbody")[0].innerHTML="
+				<?php
+			while($row = mysqli_fetch_array($result)) {
+		?>
+		<?php
+			}
+		?>" ;
+	}
+}
+
+
+</script>

@@ -44,15 +44,13 @@
 			<td>
 				<select name="level" name="level" form="signupForm">
 					<option value="none">=== 선택 ===</option>
+					<option value="0">전체</option>
 					<option value="1">사원</option>
 					<option value="2">대리</option>
 					<option value="3">과장</option>
 					<option value="4">차장</option>
 					<option value="5">부장</option>
-					<option value="6">실장</option>
-					<option value="7">이사</option>
-					<option value="8">상무</option>
-					<option value="9">전무</option>
+					<option value="6">임원</option>
 				</select>
 			</td>
 		</tr>
