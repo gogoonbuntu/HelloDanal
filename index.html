@@ -3,22 +3,83 @@
   <head>
     <meta charset="euc-kr">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Hello Danal !</title>
     <link rel="stylesheet" href="./css/common_style.css">
+	<link rel="stylesheet" href="./css/board.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   </head>
   <body>
 
 	<header class="title_b">번개모임</header>
-	
+	<div id="bodyWrapper">
+		<table>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<button class="new_b">
+		+
+	</button>
 	<footer>
-		<div class="naviMenu selected"><img src="img/shopping.png"><br>중고장터</div>
-		<div class="naviMenu"><img src="img/food.png"><br>맛집리뷰</div>
-		<div class="naviMenu"><img src="img/thunder.png"><br>번개모임</div>
-		<div class="naviMenu"><img src="img/profile.png"><br>내 페이지</div>
+		<div class="naviMenu" onclick="typeChange(0);">
+			<img src="img/shopping.png"><br>중고장터
+		</div>
+		<div class="naviMenu" onclick="typeChange(1);">
+			<img src="img/food.png"><br>맛집리뷰
+		</div>
+		<div class="naviMenu" onclick="typeChange(2);">
+			<img src="img/thunder.png"><br>번개모임
+		</div>
+		<div class="naviMenu" onclick="typeChange(3);">
+			<img src="img/profile.png"><br>내 페이지
+		</div>
 	</footer>
 
-		<div id="bodyWrapper">
-			<iframe src="board.php">
-			</iframe>
-	  	</div>
 </html>
+
+<script>
+/* 
+ * 0: 중고장터
+ * 1: 맛집리뷰
+ * 2: 번개모임
+ * 3: 내 페이지
+ */
+
+function typeChange(a){
+	$.ajax({
+		url: "boardType.php",
+		type: "post",
+		data: { btype : a},
+		success: function(data) {
+			$("tbody").html(data);
+		},
+		error: function(err) {
+			alert("err");
+		}
+	});
+	switch(a){
+		case 0: $("header").attr('class', 'title_j').html('중고장터');
+				$("button").attr('class', 'title_j');
+				$(".naviMenu").attr('class','naviMenu');
+		        $(".naviMenu")[0].classList.add('selected');
+				break;
+		case 1: $("header").attr('class', 'title_m').html('맛집리뷰');
+				$("button").attr('class', 'title_m');
+				$(".naviMenu").attr('class','naviMenu');
+		        $(".naviMenu")[1].classList.add('selected');
+				break;
+		case 2: $("header").attr('class', 'title_b').html('번개모임');
+				$("button").attr('class', 'title_b');
+				$(".naviMenu").attr('class','naviMenu');
+		        $(".naviMenu")[2].classList.add('selected');
+				break;
+		case 3: $("header").attr('class', 'title_p').html('내 페이지');
+				$("button").attr('class', 'title_p');
+				$(".naviMenu").attr('class','naviMenu');
+		        $(".naviMenu")[3].classList.add('selected');
+				break;
+	}
+	
+}
+typeChange(0);
+</script>

@@ -60,7 +60,18 @@ footer {
 .title_n{
 	background-color: #F3F3F3 ;
 }
-
+button{
+	position: absolute;
+	bottom:70px;
+	right: 10px;
+	width: 35px;
+	height: 35px;
+	border-radius: 30px;
+	border: none;
+	outline: none;
+	font-size: 25px;
+	color: rgb(0, 0, 0, 0.5);
+}
 #bodyWrapper {
 	top: 40px;
 	overflow: hidden;
@@ -68,6 +79,7 @@ footer {
 	height: 90%;
 	z-index: -1;
 }
+
 
 @media ( max-width: 768px ) {
 
