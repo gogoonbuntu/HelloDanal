@@ -2,7 +2,7 @@
 
     $host = "localhost";
     $id = "id14957377_danal";
-    $pw = "!Q2w3e1q2w3e";
+    $pw = "!Q**********"; //보안보안
     $dbname = "id14957377_tmddud333";
 	$conn = mysqli_connect($host, $id, $pw, $dbname);
 
