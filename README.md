@@ -2,13 +2,81 @@
 
 files.000webhost.com
 
-https://danal2009.000webhostapp.com/login.php
+db4free.net
 
-000webhost ìì²´ ë””ë¹„
+https://danal2009.000webhostapp.com/index.html
 
-tmddud333@gmail.com êµ¬ê¸€ë¡œê·¸ì¸
+==============================================
+ÇØ¾ß ÇÒ ÀÏµé šx´õ»¶
 
-> 000webhost.com
-> danal2009 manage website
-> tools
-> Database Manager
+TABLE_BOARD °øÅë
+seqno
+title
+content
+type
+author
+level
+viewcount
+create_time
+
+TABLE_MARKET Áß°íÀåÅÍ
+seqno
+price
+status
+
+TABLE_FOOD ¸ÀÁı¸®ºä <- board
+seqno
+likes
+distance
+location
+
+TABLE_THUNDER ¹ø°³¸ğÀÓ
+seqno
+start_time
+distance
+location
+menu
+invite varchar(200)
+
+TABLE_IMAGE
+board_seqno
+seqno
+imgsrc
+
+
+TABLE_USER
+seqno
+id
+level
+phone
+pw
++name
+
+cookie
+user_id
+level
+
+
+
+php ÆÄÀÏ ¼Ó º¯¼ö ´Ù ¹Ù²Ù±â
+
+** ¸ÇÀ­´Ü¿¡ sql ¹® ´Ù »©³õ°í **
+** post °ª ¹Ş±â ´Ù •û³õ°í    **
+Á¤½Â¿µ : index.php detail.php login.php member_check_phonenum.php signup.php signupProcess.php
+¤¤invite ÀÛ¾÷,  board -> TABLE_FOOD - Á¤½Â¿µ
+Áø¿µÀÎ : {write_process.php write_new_board.php new.php board_write.php} mypage.php
+¤¤ ÀüÈ­¹øÈ£ ³ëÃâ (»õ±Û¾²±â), php °æ·Î ¹æ¾î
+ÃÖº´¹Î : login_ok.php member_find_pw_update.php member_find.php
+¤¤ Å×ÀÌºí »ı¼º, °¡µ¥ÀÌÅÍ ³Ö±â - ÃÖº´¹Î Áß°íÀåÅÍ, ¹ø°³ 4°³¾¿, ÀÌ¸ŞÀÏ ÀÎÁõ
+
+
+
+/*
+TABLE_COMMENT
+seqno
+board_seqno
+content
+author
+create_time
+*/
+//ÄÚ¸àÆ®

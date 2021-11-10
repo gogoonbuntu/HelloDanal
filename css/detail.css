@@ -1,0 +1,145 @@
+.title_j{
+	background-color: #F0E4BB ;
+}
+.title_m{
+	background-color: #FFC398 ;
+}
+.title_b{
+	background-color: #FFA1A1 ;
+}
+#likes{
+    color: #FFCD3C;
+    margin-bottom: 10px;
+}
+
+#author{
+    float:right;
+    margin-right:15px;
+    color: #777;
+    font-size: 12px;
+}
+body {
+    margin:0px;
+    width:100%;
+}
+table {
+    border-spacing:0px;
+    margin:0;
+    width:100%;
+}
+img {
+    margin: auto;
+}
+td {
+    padding:0px;
+}
+#container {
+    width:100%;
+    top:45px;
+    position:absolute;
+}
+
+#bottom_row{
+    position:fixed;
+    bottom: 10px;
+    height:20px;
+    width:100%;
+    text-align:center;
+    z-index:9;
+}
+.box1, .box2{
+    display:inline-block;
+	right: 10px;
+	width: 90px;
+	height: 23px;
+	border-radius: 45px;
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0, 0.7);
+	box-shadow: 0 -2px 5px #CCC;
+	font-size:12px;
+	line-height:2;
+	z-index:10;
+	background: #fff;
+}
+.box2{
+	margin-left:50px;
+}
+
+.box1>img, .box2>img {
+    height:95%;
+}
+#commentbox{
+	width: 100%;
+	height: 100%;
+	border-radius: 45px;
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0, 0.7);
+	font-size:15px;
+	margin: 20px 0 50px 0;
+}
+#commentbox>div {
+    height:100%;
+    margin: 0 20px;
+}
+#commentbox>div>div {
+    display:inline-block;
+    float:left;
+    padding:7px;
+    border: 1px solid;
+    width:10%;
+    margin-left:10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#commentbox>div>textarea {
+    width:40%;
+    float:left;
+}
+#templete{
+    position: absolute;
+	right: 10px;
+	width: 350px;
+	height: 35px;
+	border-radius: 45px;
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0, 0.5);
+	box-shadow: 0 -2px 5px #CCC;
+	font-size:12px;
+}
+
+#replybox{
+    border-radius: 10px;
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0, 0.5);
+	box-shadow: 0 -2px 5px #CCC;
+}
+
+.contents_important{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#title {
+    font-size:24px;
+}
+#special {
+    font-size:20px;
+}
+#contents {
+    margin: 10px;
+    margin-bottom: 30px;
+}
+.exline {
+    margin-top:10px;
+}
+
+.author_button {
+    float: right;
+    margin-right: 13px;
+    font-size: 15px;
+    color: #555;
+    font-weight: 300;
+}

@@ -1,44 +1,80 @@
-<?php	
+<body>
+    <img src="./img/opening.png">
+</body>
+<style>
+    img {
+        height: 100%;
+        animation: load 2s;
+    }
+    
+    @keyframes load{
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    body{
+        overflow: hidden;
+        text-align:center;
+        background:linear-gradient(180deg, #FFF 0%, #F6EFEF 100%);
+    }
+</style>
+<?php
 	include 'dbconn.php';
 	include "password.php";
-    if(!isset($_POST['userid']) || !isset($_POST['userpw'])) exit;
-    
-    $user_id = $_POST["userid"];
-    
-	//POST로 받아온 아이다와 비밀번호가 비었다면 알림창을 띄우고 전 페이지로 돌아갑니다.
-	if($_POST["userid"] == "" || $_POST["userpw"] == ""){
-		echo '<script> alert("아이디나 패스워드 입력하세요"); history.back(); </script>';
-	}else{
+	include "log.php";
+	if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+	    echo "<script>"
+	        ."alert('잘못된 접근입니다');"
+	        ."history.back();"
+	        ."</script>" ;
+        die('잘못된 접근입니다');
+	    exit;
+	}
+	$user_id = $_POST['userid'];
+    $password = $_POST['userpw'];
 
+    if(!isset($user_id) || !isset($password) || $user_id=='') {
+	    echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
+        exit;
+    }
+    
+    
 	//password변수에 POST로 받아온 값을 저장하고 sql문으로 POST로 받아온 아이디값을 찾습니다.
-	$password = $_POST['userpw'];
-	$sql = mq('select * from user where id="'.$_POST['userid'].'"');
-
+	
+	$sql = mq('select * from TABLE_USER where id="'.$user_id.'"');
+    
 	$member = $sql->fetch_array(); // 입력된 id와 db에 있는 id가 같은 경우
+    
+    if($password == $member['pw'])
+    {
+        push_log($_SERVER, $user_id." LOGIN.",__LINE__);
+        ?>
+        <script>
+            var user_id = '<?php echo $user_id ;?>' ;
+            var level = '<?php echo $member["level"] ;?>' ;
+            var myidx = '<?php echo $member["seqno"] ;?>' ;
+            
+            function setCookie(name, value, expiredays) {
+                var date = new Date();
+                date.setDate(date.getDate() + expiredays);
+                document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
+            }
+            
+            setCookie('user_id', user_id, 30);
+            setCookie('level', level, 30);
+            setCookie('myidx', myidx, 30);
+            setTimeout(function(){
+                alert(user_id + '님 로그인되었습니다.');
+                location.href='index.php';}, 1000);
+        </script>
+        <?php
+    }
 
-  if($_POST["userpw"] == $member['pswd'])
-  {
-      
-    setcookie('user_id',$user_id,time()+(86400*30),'/');
-
-    echo "<script>alert('".$_COOKIE["user_id"]."님 로그인되었습니다.'); location.href='board.php'; </script>";
-  }
-
-  else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
-		echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
-  }
-
-
-	//$hash_pw = $member['password']; //$hash_pw에 POSt로 받아온 아이디열의 비밀번호를 저장합니다. 
-
-	//if(password_verify($password, $hash_pw)) //만약 password변수와 hash_pw변수가 같다면 세션값을 저장하고 알림창을 띄운후 main.php파일로 넘어갑니다.
-	//{
-	//	$_SESSION['userid'] = $member["id"];
-	//	$_SESSION['userpw'] = $member["password"];
-
-	//	echo "<script>alert('로그인되었습니다.'); location.href='board.html';</script>";
-	//}else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
-	//	echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
-	//}
-}
+    else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
+    	echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
+    }
 ?>

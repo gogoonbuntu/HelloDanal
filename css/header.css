@@ -1,0 +1,32 @@
+header>div{
+    display:inline-block;
+    text-align: center;
+    line-height: 2.5;
+    font-size:17px;
+}
+.goback {
+    height: 40px;
+    width: 30px;
+}
+.goback>img {
+    height: 15px;
+}
+
+.headerText{
+    background-color: #EEE ;
+    box-shadow: 2px 2px 2px #AAA;
+    width: 100%;
+    margin-left: -30px;
+    height: 40px;
+    position:absolute;
+    z-index:-3;
+}
+.title_j{
+	background-color: #F0E4BB ;
+}
+.title_m{
+	background-color: #FFC398 ;
+}
+.title_b{
+	background-color: #FFA1A1 ;
+}

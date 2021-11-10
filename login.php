@@ -1,85 +1,93 @@
 <?php   
-include 'dbconn.php'; 
+    include 'dbconn.php'; 
+    include 'log.php';
+    if( isset($_COOKIE['user_id']) ) {
+        push_log($_SERVER, $_COOKIE['user_id']." LOGIN.",__LINE__)
 ?>
-
-
+    <script>
+        document.location.href = "/index.php" ;
+    </script>
+<?php
+    }
+?>
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>회원가입 및 로그인 사이트</title>
-<style>
-   {
-  margin: 0 auto;
-  padding:0;
-}
-
-a
-{
-  text-decoration: none; 
-}
-
-ul li 
-{
-  list-style: none;
-}
-
-#login_box
-{
-  width:500px;
-  height:200px;
-  border:solid 2px gray;
-}
-
-table 
-{
-  margin-top:10px;
-}
-
-.mem a:hover 
-{
-  color:red;
-}
-
-#btn 
-{
-  width:95px;
-  height:55px;
-  background: skyblue;
-  border:solid 1px skyblue;
-}
-
-.inph 
-{
-  height:25px;
-}
-   </style>
+	<link rel="stylesheet" href="./css/input.css">
+	<meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
 </head>
 <body>
-	<div id="login_box">
-		<h1>로그인</h1>							
-			<form method="post" action="login_ok.php">
-				<table align="center" border="0" cellspacing="0" width="300">
-        			<tr>
-            			<td width="130" colspan="1"> 
-                		<input type="text" name="userid" class="inph">
-            		</td>
-            		<td rowspan="2" align="center" width="100" > 
-                		<button type="submit" id="btn" >로그인</button>
-            		</td>
-        		</tr>
-        		<tr>
-            		<td width="130" colspan="1"> 
-               		<input type="password" name="userpw" class="inph">
-            	</td>
-        	</tr>
-        	<tr>
-           		<td colspan="3" align="center" class="mem"> 
-              	<a href="member.php">회원가입 하시겠습니까?</a>
-                <a href="member_find.php">계정찾기</a>
-           </td>
-        </tr>
-    </table>
-  </form>
-</div>
+    <div id="container">
+        <div id="header">
+            <img src="./img/danal full logo.png" width="60px">
+        </div>
+        <div id="login_title">
+            <span class="login_header">로그인</span>
+        </div>    
+
+    	<div id="login_box">
+    									
+    			<form method="post" action="login_ok.php">
+    				<table align="center">
+            			<tr>
+                			<td> 
+                    		<input type="text" class="shadow inph" placeholder="아이디" name="userid" size=40>
+                		</td>
+
+            		</tr>
+            		<tr>
+                		<td> 
+                   		<input type="password" class="shadow inph" placeholder="비밀번호" name="userpw" size=40>
+                	    </td>
+            	    </tr>
+            	<tr>
+               		<td align="center">
+               		<button type="submit" class="btn shadow" >로그인</button> 
+                  	<button type="button" class="btn blue shadow" onclick="location.replace('signup.php');">회원가입</button>
+                    <div class="find_pw">비밀번호를 잊으셨나요? <a href="member_find.php">비번찾기</a></div>
+                    </td>
+                </tr>
+            </table>
+         </form>
+        </div>
+    </div>
+    
+    <footer>
+        <img class="login_no" src="./img/character danaly.png">
+    </footer>
 </body>
 </html>
+<script>
+    var wh = window.innerHeight;
+    document.getElementsByTagName("body")[0].style.height = wh+"px";
+    
+    //clear cookie ;
+    document.cookie="user_id=;Max-Age=-999999;" ;
+    document.cookie="level=;Max-Age=-999999;" ;
+    document.cookie="myidx=;Max-Age=-999999;" ;
+    
+    //clear history
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+    
+    
+    //호스팅어 로고 지우기
+    function no_logo() {
+        var div_list = document.getElementsByTagName("div") ;
+        for (var a of div_list) {
+            if(a.style['z-index']>999999) {
+                a.parentNode.removeChild(a) ;
+            }
+        }
+    }
+    window.onload = function(){
+        no_logo();
+        setTimeout(no_logo(), 100) ;
+        setTimeout(no_logo(), 500) ;
+    } ;
+</script>

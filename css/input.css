@@ -1,0 +1,179 @@
+#container {
+	width: 280px;
+	margin: auto;
+	height: 70%;
+}
+
+a {
+  text-decoration: none; 
+}
+html {
+   margin: 0px;
+   height: 100vh;
+   width: 100%;
+   overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+    position: relative;
+}
+
+footer {
+	text-align:center;
+	overflow: hidden;
+	height: 160px;
+	bottom:20px;
+	position:absolute;
+	width:100%;
+}
+
+
+ul li {
+  list-style: none;
+}
+
+table {
+  padding-top:10px;
+  border:0; 
+}
+
+.btn {
+	width:47.1%;
+	height:40px;
+	background: #FFA1A1;
+	border:none;
+	border-radius: 20px;
+	color:white;
+	font-size: 20px;
+}
+
+.blue {
+	background: #8DBBFF;
+	margin-left: 10px;
+}
+
+.shadow {
+	box-shadow: 1px 1px 5px 1px #ccc;
+}
+
+.inph {
+    height: 40px;
+    width: 94%;
+    border-radius: 20px;
+    border: none;
+    background-color: #e9e9e9;
+    margin-bottom: 10px;
+    color: darkgray;
+    padding-left: 15px;
+    font-size: 20px;
+}
+.inph:focus {
+    outline: none;
+}
+#header {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#login_title {
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 70px;
+	
+}
+
+.login_no{
+	transform: rotate(-10deg) translateY(60px);
+	z-index:-3;
+}
+
+.login_ok{
+	transform: rotate(0deg) translateY(-200px);
+	transition: 1s;
+}
+
+.login_header{
+	font-size: 50px;
+	font-weight: 500;
+}
+
+.find_pw {
+	font-size: 10px;
+	color: gray;
+	margin-top: 10px;
+}
+#alarmTable{
+    position: absolute;
+    top: 120px;
+    left: 70px;
+}
+#alarmTable>tbody>tr>td {
+    height:50px;
+    margin-bottom:10px;
+    background-color: #ADEFD1;
+    border-radius:40px;
+    border:none;
+    padding-left:20px;
+    width:220px;
+}
+.on {
+    opacity:1;
+    transition: opacity 0.1s;
+}
+.off {
+    opacity:0;
+    transition: opacity 1.5s;
+}
+.green{
+    color: #49db00;
+}
+.red{
+    color: red;
+}
+#idCheck, #pswdCheck, #numCheck{
+    margin-bottom:-5px;
+    padding-left:20px;
+    font-size:13px;
+    text-align: left;
+    transform: translateY(-13px);
+}
+#idCheck{
+    top:10px;
+    left:10px;
+    
+}
+#pswdCheck{
+    top:10px;
+    left:10px;
+}
+#numCheck{
+    top:10px;
+    left:10px;
+}
+
+.pass {
+    color: green;
+    background-color: #49db00;
+}
+.nopass {
+    color: #333;
+    background-color: #DDD;
+}
+.signup_btn_wrapper {
+    position:absolute;
+    bottom:0px;
+    width:100%;
+}
+.signup_btn {
+    width:49%;
+    height:40px;
+    font-size:15px;
+    border: none;
+}
+
+#level {
+    width:100px;
+    margin-left:10px;
+}

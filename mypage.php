@@ -1,95 +1,174 @@
 <?php  
 	include "dbconn.php";
-	//if(isset($_SESSION['userid'])){
+	header("Pragma: no-cache");
+    header("Cache-Control: no-cache, must-revalidate");
+    
+    $level_name = array('에러','사원', '대리', '과장', '차장', '부장', '임원') ;
+    
+    $userid = $_COOKIE['user_id'];
+
+    $sql_user_info = "select id, level, phone from TABLE_USER where id='$userid'" ;
+    $sql_my_contents = "select seqno, type, title from TABLE_BOARD where author='$userid'" ;
+    
+    
+    $result = mq($sql_user_info) ;
+    $account_data = [] ;
+    while($i = mysqli_fetch_array($result)){
+        array_push($account_data, $i) ;
+    }
+
+    $level = $account_data[0][1];
+    $phone_num = $account_data[0][2];
+    
+    $result0 = mq($sql_my_contents) ;
+    $rows = [] ;
+    while($row = mysqli_fetch_array($result0)){
+        array_push($rows, $row) ;
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
+<meta charset="euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <title>내 정보</title>
-<style>
-* {margin: 0 auto;}
-a {color:#333; text-decoration: none;}
-.find {text-align:center; width:500px; margin-top:30px; }
-</style>
+
 </head>
-<body>
-	<div class="find">
-		<!--<form method="post" action="member_pw_update.php"> -->
- 			<?php
-			  //  $sql = mq("select * from user where id='{$_SESSION['userid']}'");-->
-			    //while($member = $sql->fetch_array()){-->
-			//?>
-			<h1>내 정보</h1>
-			<p><a href="./index.html">홈으로</a></p>
-				<fieldset>
-					<legend>마이페이지</legend>
-						<table>
-							<p>
-								반갑습니다! 
-                <?php   
-                if(isset($_SESSION['userid']) && !empty($_SESSION['userid'])) {
-                  $userid = $_SESSION['userid'];
-                }
-                else{
-                  $userid = 'NULL';
-                }
-                echo $userid;
-                ?> 
-                님!
-                <br>
-							</p>
-							<br>
-              <p>
-								직급 : 
-								<?php
-                if(isset($_SESSION['level']) && !empty($_SESSION['level'])) {
-                  $level = $_SESSION['level'];
-                }
-                else{
-                  $level = '무직';
-                }
-                echo $level; 
-                ?>
-                <br>
-							</p>
-              <br>
-							<p>
-								<?php
-                if(isset($_SESSION['phone_num']) && !empty($_SESSION['phone_num'])) {
-                  $phone_num = $_SESSION['phone_num'];
-                }
-                else{
-                  $phone_num = '010-';
-                }
-                echo $phone_num; 
-                ?>
-                <br>
-							</p>
-              <br>
-              <tr>
-              <button onclick=goChangePW()>비밀번호변경</button> 
-              &nbsp 
-              <button onclick="href.location=''">정보변경</button>
-              &nbsp
-              <button >내가쓴글보기</button>
-              </tr>
-						</table>
-					
-			</fieldset>
-			<?php //} ?>
-		</form>
-	<!--</div>-->
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<body id="hidden">
+    <div id="side-nav">
+    <div class="contents">
+        <br>
+        <table>
+            <tbody align="left">
+                <tr class="t_align">
+                    <th>아이디 : </th>
+                    <td> 
+                    <?php   
+                        echo $userid ;
+                    ?> 
+                        <div class="logout" onclick="logout()">로그아웃</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>직급 : </th>
+                    <td>
+                    <?php
+                        echo $level_name[$level] ; 
+                    ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>전화번호 : </th>
+                    <td>
+                    <?php
+                        if(is_null($phone_num)){
+                            $phone_num = '010-';
+                        }
+                        echo $phone_num; 
+                    ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align:center ; background-color:#F3F3F3 ;" onclick="changePassword()">
+                        비밀번호 수정
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan=2 >내가 쓴 게시글</th>
+                </tr>
+            </tbody>
+        </table>
+    <div id="pagination">
+        <ul id="my_pages" style="">
+            
+        </ul>
+    </div>
+    <div id="paging" style="display:flex; justify-content:center;">
+    </div>      
+    <script src="ref/paging.js" type="text/javascript"></script>
+    </div>
+    </div>
+    <form action="member_find.php" method="post" name="form_change_pw">
+        <input type="hidden" name="input_id" value="<?php echo $userid ; ?>">
+        <input type="hidden" name="input_pn" value="<?php echo $phone_num ; ?>">
+    </form>
 </body>
 </html>
-<?php //}else{
-	//echo "<script>alert('잘못된 접근입니다.'); history.back();</script>";
-//}
-?>
 
 <script>
-  function goChangePW(){
-    //member_find : 비밀번호 변경 페이지
-    window.location.replace('member_find.php');	
-  }
+    var rows = <?php echo json_encode($rows) ; ?> ;
+    // Initial Page Buttons
+    var contentsPerPage = 5;
+    pages = rows.length / contentsPerPage ;
+    pages > parseInt(rows.length / contentsPerPage) ? pages = parseInt(pages) + 1 : pages ;
+    
+    var pageCurrent = 1;
+    
+    if (pages > 0) {
+    	for (var i = 1; i <= pages; i++) {
+    		document.getElementById('paging').innerHTML+="<div class='pageButton' onclick='loadMyPage(this)'>"+i+"</button > ";
+    }
+    	document.getElementsByClassName('pageButton')[0].click();
+    } else {
+    	document.getElementById('paging').innerHTML+="Empty";
+    }
+    
+    
+    // Functions
+    function loadMyPage(elem) {
+        header_name = ['중', '맛', '번']
+    	pageCurrent = parseInt(elem.innerHTML);
+    	console.log("pageCurrent: " + pageCurrent);
+    	addhtml = document.getElementById('my_pages');
+    	temphtml = "";
+    	for (var i = (pageCurrent-1) * contentsPerPage ; i < Math.min(pageCurrent * contentsPerPage, rows.length) ; i++) {
+    		temphtml += '<li class="result btype' +rows[i][1]+ '" onclick="godetail(' +rows[i][0]+ ')" >' ;
+    		temphtml += '['+header_name[parseInt(rows[i][1])]+'] ' ;
+    		temphtml += rows[i][2] ; //title
+    		temphtml += '</li>' ;
+    	}
+    	addhtml.innerHTML = temphtml;
+    }
+    
+    function godetail(i){
+        var form = document.createElement("form");
+        form.setAttribute('method', 'post');
+	    form.setAttribute('action', "detail.php");
+	    document.charset = "utf-8";
+	
+
+		var hiddenField = document.createElement('input');
+		hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', "input_idx");
+		hiddenField.setAttribute('value', i);
+
+		form.appendChild(hiddenField);
+
+	    document.body.appendChild(form);
+        
+	    form.submit();
+        
+        
+    }
+    function changePassword(){
+        document.form_change_pw.submit();
+    }
+    function logout(){
+        document.cookie="user_id=;Max-Age=-999999;" ;
+        document.cookie="level=;Max-Age=-999999;" ;
+        document.cookie="myidx=;Max-Age=-999999;" ;
+        location.replace('/login.php') ;
+    }
+    
+    //호스팅어 로고 지우기
+    var div_list = document.getElementsByTagName("div") ;
+    for (var a of div_list) {
+        console.log(a.style['z-index']);
+        if(a.style['z-index']>999999) {
+            a.parentNode.removeChild(a) ;
+        }
+    }
 </script>
