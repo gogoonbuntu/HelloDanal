@@ -1,9 +1,9 @@
 <?php
 
-    $host = "localhost";
-    $id = "id14957377_danal";
-    $pw = "!Q**********"; //보안보안
-    $dbname = "id14957377_tmddud333";
+    $host = "sql6.freemysqlhosting.net";
+    $id = "sql6510505";
+    $pw = "XXekRPbLBh"; //보안보안
+    $dbname = "sql6510505";
 	$conn = mysqli_connect($host, $id, $pw, $dbname);
 
   $db = new mysqli($host, $id, $pw, $dbname);
