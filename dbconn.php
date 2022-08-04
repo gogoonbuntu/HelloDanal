@@ -1,6 +1,6 @@
 <?php
 
-    $host = "sql6.freemysqlhosting.net";
+    $host = "ec2-52-8-112-233.us-west-1.compute.amazonaws.com";
     $id = "sql6510505";
     $pw = "XXekRPbLBh"; //보안보안
     $dbname = "sql6510505";
