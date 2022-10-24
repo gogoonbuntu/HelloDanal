@@ -1,8 +1,8 @@
 <?php
 
     $host = "127.0.0.1";
-    $id = "tmddud333";
-    $pw = "abc123"; //보안보안
+    $id = "root";
+    $pw = "abd123"; //보안보안
     $dbname = "tmddud333";
 	$conn = mysqli_connect($host, $id, $pw, $dbname);
 
