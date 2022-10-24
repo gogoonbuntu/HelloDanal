@@ -1,9 +1,9 @@
 <?php
 
-    $host = "ec2-52-8-112-233.us-west-1.compute.amazonaws.com";
-    $id = "sql6510505";
-    $pw = "XXekRPbLBh"; //보안보안
-    $dbname = "sql6510505";
+    $host = "127.0.0.1";
+    $id = "tmddud333";
+    $pw = "abc123"; //보안보안
+    $dbname = "tmddud333";
 	$conn = mysqli_connect($host, $id, $pw, $dbname);
 
   $db = new mysqli($host, $id, $pw, $dbname);
