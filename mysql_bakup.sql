@@ -25,6 +25,7 @@ create table TABLE_USER (
 	level TINYINT(1) NOT NULL,
 	year TINYINT(1) NOT NULL,
 	phone INT(11) NOT NULL,
+	board_seqno INT(11) NOT NULL,
 	CONSTRAINT FOREIGN KEY(board_seqno) REFERENCES TABLE_BOARD(seqno)
 );
 
@@ -69,5 +70,5 @@ create table TABLE_IMAGE (
 create table TABLE_AUTH (
 	seqno INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	authkey VARCHAR(10),
-	indate DATETIME NOT NULL,
+	indate DATETIME NOT NULL
 );
