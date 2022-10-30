@@ -25,7 +25,7 @@
             <img src="./img/danal full logo.png" width="60px">
         </div>
         <div id="login_title">
-            <span class="login_header">로그인2</span>
+            <span class="login_header">로그인22</span>
         </div>    
 
     	<div id="login_box">
