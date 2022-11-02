@@ -165,7 +165,7 @@
             <tr>
                 <td align="center">
                     <div id="map" style="width:90%; padding-top:90%; position:relative;"></div>
-                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42d23ea334fd5aa74b554bee027e2bf8&libraries=services,clusterer,drawing"></script>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3e966a5b660119401470417835ee05ee&libraries=services,clusterer,drawing"></script>
                 	<script>
                     	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                     		    mapOption = {
