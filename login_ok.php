@@ -38,7 +38,7 @@
     $password = $_POST['userpw'];
 
     if(!isset($user_id) || !isset($password) || $user_id=='') {
-	    echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
+	    echo "<script>alert('".$user_id.' '.$password." 아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
         exit;
     }
     
