@@ -64,7 +64,7 @@
                 $sql_img = "insert into TABLE_IMAGE(board_seqno, imgsrc) values ($board_seqno, '$path_filename_ext')" ;
                 if (!mysqli_query($conn, $sql_img))
                 {
-                    die('Error: ' . mysqli_error($conn));
+                    die('<br>Error: ' . mysqli_error($conn).' from sql('.$sql_img.')');
                 }
                 
                 $sql0 = "insert into TABLE_MARKET(board_seqno, price, num_ok) values ($board_seqno, $price, '$num_ok')";
