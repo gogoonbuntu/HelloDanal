@@ -54,6 +54,7 @@ create table TABLE_FOOD (
 create table TABLE_MARKET (
 	seqno INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	board_seqno INT(11) NOT NULL,
+	status TINYINT(1),
 	price INT(11) NOT NULL,
 	num_ok TINYINT(1) NOT NULL,
 	CONSTRAINT FOREIGN KEY(board_seqno) REFERENCES TABLE_BOARD(seqno)
