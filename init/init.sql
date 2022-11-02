@@ -10,7 +10,7 @@ create table TABLE_BOARD (
 
 create table TABLE_COMMENT (
 	seqno INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	create_time DATETIME NOT NULL,
+	create_time DATETIME NOT NULL DEFAULT NOW(),
 	board_seqno INT(11) NOT NULL,
 	content VARCHAR(100) NOT NULL,
 	author VARCHAR(20) NOT NULL,
@@ -20,7 +20,7 @@ create table TABLE_COMMENT (
 
 create table TABLE_USER (
 	seqno INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	create_time DATETIME NOT NULL,
+	create_time DATETIME NOT NULL DEFAULT NOW(),
 	id VARCHAR(20) NOT NULL,
 	pswd VARCHAR(20) NOT NULL,
 	name VARCHAR(20) NOT NULL,
