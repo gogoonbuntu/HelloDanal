@@ -1,7 +1,7 @@
 <?php
 
     $host = "db";
-    $port = "33060";
+    $port = "3306";
     $id = "tmddud333";
     $pw = "abd123"; //보안보안
     $dbname = "tmddud333";
