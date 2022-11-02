@@ -245,7 +245,7 @@
     <button type="button" onclick="final_submit()" style="width:100%; height:50px;">글쓰기</button>
     </form>
     
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42d23ea334fd5aa74b554bee027e2bf8&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3e966a5b660119401470417835ee05ee&libraries=services"></script>
 <script>
     var boardForm = document.forms['boardForm'] ;
     boardForm['level'].value = "<?php echo $level ;?>" ;
