@@ -29,21 +29,21 @@ $sql .= "') ;" ;
 //////////// MAIL STARTSS
 
 $to_id=$user_id.'@danal.co.kr';
-$from_id='vkdldk333@naver.com';
-$pass="ve18qwopxc!";
+$from_id='utiljung0@gmail.com';
+$pass="jgystalulucecsmo";
 $title='Hello Danal authentication';
 $article=$contents;
 
 require_once("class.phpmailer.php");
 
-$smtp="smtp.naver.com";
+$smtp="smtp.gmail.com";
 $mail=new PHPMailer(true);
 $mail->IsSMTP();
 
 try{
 	$mail->Host=$smtp;
 	$mail->SMTPAuth=true;
-	$mail->Port=465;
+	$mail->Port=587;
 	$mail->SMTPSecure="ssl";
 	$mail->Username=$from_id;
 	$mail->Password=$pass;
