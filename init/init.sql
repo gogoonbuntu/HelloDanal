@@ -70,6 +70,7 @@ create table TABLE_IMAGE (
 
 create table TABLE_AUTH (
 	seqno INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id VARCHAR(20) NOT NULL,
 	authkey VARCHAR(10),
 	indate DATETIME NOT NULL
 );
