@@ -30,7 +30,7 @@ $sql .= "') ;" ;
 
 $to_id=$user_id.'@danal.co.kr';
 $from_id='vkdldk333@naver.com';
-$pass="!Q2w3edaidai";
+$pass="ve18qwopxc!";
 $title='Hello Danal authentication';
 $article=$contents;
 
