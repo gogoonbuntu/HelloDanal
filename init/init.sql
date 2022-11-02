@@ -26,9 +26,7 @@ create table TABLE_USER (
 	name VARCHAR(20) NOT NULL,
 	level TINYINT(1) NOT NULL,
 	year TINYINT(1) NOT NULL,
-	phone INT(11) NOT NULL,
-	board_seqno INT(11) NOT NULL,
-	CONSTRAINT FOREIGN KEY(board_seqno) REFERENCES TABLE_BOARD(seqno)
+	phone INT(11) NOT NULL
 );
 
 create table TABLE_THUNDER (
