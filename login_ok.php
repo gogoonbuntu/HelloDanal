@@ -49,7 +49,7 @@
     
 	$member = $sql->fetch_array(); // 입력된 id와 db에 있는 id가 같은 경우
     
-    if($password == $member['pw'])
+    if($password == $member['pswd'])
     {
         push_log($_SERVER, $user_id." LOGIN.",__LINE__);
         ?>
