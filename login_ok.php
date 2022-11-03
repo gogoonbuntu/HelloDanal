@@ -75,6 +75,6 @@
     }
 
     else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
-    	echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
+    	echo "<script>alert('아이디 혹은 비밀번호가 잘못된 값입니다.'); history.back();</script>";
     }
 ?>
