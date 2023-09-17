@@ -1,6 +1,6 @@
 <?php  
-	include 'dbconn.php';
-	include 'log.php';
+	include ROOT.'config/dbconn.php';
+	include ROOT.'lib/log.php';
 	
     $bno = $_POST["input_idx"]; /* bno함수에 idx값을 받아와 넣음*/ 
     

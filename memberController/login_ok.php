@@ -23,9 +23,9 @@
     }
 </style>
 <?php
-	include 'dbconn.php';
-	include "password.php";
-	include "log.php";
+	include ROOT.'config/dbconn.php';
+	include ROOT."memberController/password.php";
+	include ROOT."lib/log.php";
 	if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 	    echo "<script>"
 	        ."alert('잘못된 접근입니다');"

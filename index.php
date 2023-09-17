@@ -1,5 +1,6 @@
 <?php
-    include "dbconn.php" ;
+    include ROOT."config/dbconn.php" ;
+    define('ROOT', __DIR__ .'/');
     
     $sql_market = "SELECT TABLE_BOARD.*,TABLE_MARKET.price,TABLE_MARKET.status,TABLE_IMAGE.imgsrc FROM TABLE_BOARD join TABLE_MARKET join TABLE_IMAGE on TABLE_MARKET.board_seqno  = TABLE_BOARD.seqno and TABLE_BOARD.seqno=TABLE_IMAGE.board_seqno;" ;
     $sql_food = "SELECT a.*, (SELECT COUNT(*) AS cnt FROM TABLE_COMMENT WHERE TABLE_COMMENT.board_seqno = a.seqno) as Totalcomment FROM (SELECT TABLE_BOARD.*,TABLE_FOOD.likes,TABLE_FOOD.location,TABLE_FOOD.distance,TABLE_IMAGE.imgsrc FROM TABLE_BOARD inner join TABLE_FOOD inner join TABLE_IMAGE on TABLE_FOOD.board_seqno = TABLE_BOARD.seqno and TABLE_BOARD.seqno=TABLE_IMAGE.board_seqno) a;" ;

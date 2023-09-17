@@ -1,5 +1,5 @@
 <?php
-	include 'dbconn.php';
+	include ROOT.'config/dbconn.php';
 	echo "처리중입니다...\n";
 		$sql = "insert into TABLE_USER(id, level, phone, pswd, name, year) values ('$_POST[id]', '$_POST[level]', '$_POST[phonenumber]', '$_POST[pswd]', '$_POST[name]', '$_POST[year]');";
 

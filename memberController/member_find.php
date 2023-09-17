@@ -1,5 +1,5 @@
 <?php 
-  include "dbconn.php";
+  include ROOT."config/dbconn.php";
   if(isset($_COOKIE['userid'])){
     echo "<script>alert('".$_COOKIE['userid']."님은 이미 로그인되어 있습니다.'); history.back();</script>";
   }else{ 

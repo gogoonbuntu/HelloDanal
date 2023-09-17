@@ -1,5 +1,5 @@
 <?php
-	include 'invite.php' ;
+	include ROOT.'boardController/invite.php' ;
 	$mylevel = $_COOKIE['level'] ;
 	$btype = $_POST['btype'] ;
 	

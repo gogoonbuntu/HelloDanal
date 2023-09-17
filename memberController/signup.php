@@ -1,5 +1,5 @@
 <?php
-	include 'dbconn.php';
+	include ROOT.'config/dbconn.php';
 	$sql = 'select id from danal_id';
 	$result = mq($sql);
 ?>

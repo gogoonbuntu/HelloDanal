@@ -1,6 +1,6 @@
 <?php
 
-    require_once('dbconn.php') ;
+    require_once('config/dbconn.php') ;
     
     $bno = $_POST['seqno'] ;
     $btype = $_POST['btype'] ;

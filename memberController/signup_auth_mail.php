@@ -1,8 +1,8 @@
 <?php
 @extract($_POST);
 
-include 'dbconn.php' ;
-include 'log.php' ;
+include ROOT.'config/dbconn.php' ;
+include ROOT.'lib/log.php' ;
 
 
 $user_id = $_GET['uid'] ;

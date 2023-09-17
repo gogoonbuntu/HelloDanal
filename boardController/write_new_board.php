@@ -1,6 +1,6 @@
 <?php
 
-    require_once('dbconn.php') ;
+    require_once('config/dbconn.php') ;
     $type = $_POST['btype'] ;
     $sql = "select seqno, id, name, level, year from TABLE_USER";
     $result = mq($sql) ;
@@ -234,8 +234,8 @@
             </thead>
             </table>
             <?php 
-				$type==2 ? include 'invite.php' : 0 ;
-				include 'loading.php' ;
+				$type==2 ? include ROOT.'boardController/invite.php' : 0 ;
+				include ROOT.'loading.php' ;
 			?>
     </div>
     

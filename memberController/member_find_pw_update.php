@@ -1,7 +1,7 @@
 <?php
 
-include "dbconn.php";
-include "password.php";
+include ROOT."config/dbconn.php";
+include ROOT."memberController/password.php";
 
 //$userpw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 $userid = $_POST['id'];

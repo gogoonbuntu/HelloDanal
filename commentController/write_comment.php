@@ -1,19 +1,21 @@
 <?php
-	include 'dbconn.php';
-	include 'log.php';
-	$bno = $_POST['seqno'];
-	$cno = $_POST['comment_seqno'];
-	$sql = "delete FROM TABLE_COMMENT where seqno='$cno';";
-	
-	push_log($_COOKIE['user_ud']);
-	
-if (!mysqli_query($conn,$sql))
+	include ROOT.'config/dbconn.php';
+	include ROOT.'lib/log.php';
+	$bno = $_POST['board_seqno'];
+	$author = $_POST['author'];
+	$content = $_POST['content'];
+    
+    push_log($_SERVER, $author.' COMMENT ON '.$bno, __LINE__);
+	$sql = "insert into TABLE_COMMENT(board_seqno, content, author, create_time) values ('$bno', '$content', '$author', now());";
+	    
+	if (!mysqli_query($conn,$sql))
     {
         die('Error: ' . mysqli_error($conn));
     }
-    echo "1 record deleted";
+    echo "1 record added";
 	
 ?>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +25,7 @@ if (!mysqli_query($conn,$sql))
 </body>
 </html>
 <script>
-    var form = document.createElement("form");
+        var form = document.createElement("form");
         
         form.setAttribute('method', 'post');
 	    form.setAttribute('action', "detail.php");
@@ -42,4 +44,3 @@ if (!mysqli_query($conn,$sql))
         
 	    form.submit();
 </script>
-

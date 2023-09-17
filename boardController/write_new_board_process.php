@@ -1,7 +1,7 @@
 <body>
     <?php
-    include 'dbconn.php' ;
-    include 'log.php';
+    include ROOT.'config/dbconn.php' ;
+    include ROOT.'lib/log.php';
     
     date_default_timezone_set("Asia/Seoul");
     $time_now = date("Y-m-d H:i:s") ;

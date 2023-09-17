@@ -1,6 +1,6 @@
 <?php   
-    include 'dbconn.php'; 
-    include 'log.php';
+    include ROOT.'config/dbconn.php'; 
+    include ROOT.'lib/log.php';
     if( isset($_COOKIE['user_id']) ) {
         push_log($_SERVER, $_COOKIE['user_id']." LOGIN.",__LINE__)
 ?>
