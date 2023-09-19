@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="./css/invite.css">
+<link rel="stylesheet" href="../css/invite.css">
 <div id="loading" class="hide">
-    <img src="./img/danaly run.gif">
+    <img src="../img/danaly run.gif">
     <div id="loading_text">Loading...</div>
 </div>
 <style>

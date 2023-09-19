@@ -17,7 +17,7 @@
     );
 
     $host = "db";
-    $port = "3306";
+    $port = "33060";
     $id = "tmddud333";
     $pw = "abd123"; //보안보안
     $dbname = "tmddud333";

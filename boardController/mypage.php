@@ -1,4 +1,5 @@
 <?php  
+    include '../config/define.php' ;
 	include ROOT."config/dbconn.php";
 	header("Pragma: no-cache");
     header("Cache-Control: no-cache, must-revalidate");

@@ -23,6 +23,7 @@
     }
 </style>
 <?php
+    include '../config/define.php' ;
 	include ROOT.'config/dbconn.php';
 	include ROOT."memberController/password.php";
 	include ROOT."lib/log.php";

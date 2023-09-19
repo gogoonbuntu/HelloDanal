@@ -1,6 +1,6 @@
 <?php
 @extract($_POST);
-
+include '../config/define.php' ;
 include ROOT.'config/dbconn.php' ;
 include ROOT.'lib/log.php' ;
 

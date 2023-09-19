@@ -1,6 +1,6 @@
 <?php
-
-    require_once('config/dbconn.php') ;
+    include '../config/define.php' ;
+    require_once('../config/dbconn.php') ;
     $type = $_POST['btype'] ;
     $sql = "select seqno, id, name, level, year from TABLE_USER";
     $result = mq($sql) ;

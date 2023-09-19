@@ -1,6 +1,6 @@
 <?php
 
-    require_once('config/dbconn.php') ;
+    require_once('../config/dbconn.php') ;
     
     $bno = $_POST['seqno'] ;
     $btype = $_POST['btype'] ;
@@ -18,5 +18,5 @@
     } 
 ?>
 <script>
-    location.replace('index.php') ;
+    location.replace('../index.php') ;
 </script>

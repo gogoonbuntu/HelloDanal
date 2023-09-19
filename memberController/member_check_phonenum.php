@@ -1,4 +1,5 @@
 <?php
+    include '../config/define.php' ;
     include ROOT.'config/dbconn.php' ;
     $sql = "select id, phone from TABLE_USER ;" ;
     $result = mq($sql) ;
