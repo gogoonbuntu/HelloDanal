@@ -1,7 +1,7 @@
 <?php
     include '../config/define.php' ;
 	include ROOT.'config/dbconn.php';
-	include ROOT.'lib/log.php';
+	include ROOT.'../lib/log.php';
 	$bno = $_POST['board_seqno'];
 	$author = $_POST['author'];
 	$content = $_POST['content'];
@@ -29,7 +29,7 @@
         var form = document.createElement("form");
         
         form.setAttribute('method', 'post');
-	    form.setAttribute('action', "detail.php");
+	    form.setAttribute('action', "../boardController/detail.php");
 	    document.charset = "utf-8";
 	
 

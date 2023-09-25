@@ -30,8 +30,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/write.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/write.css">
     <style>
         /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
         @media all and (min-width:768px) and (max-width:1023px) { /*스타일입력*/}
@@ -75,10 +75,10 @@
 <body>
     <header>
         <div class="goback" onclick="goback()">
-            <img src="img/goback.png">
+            <img src="../../img/goback.png">
         </div>
         <div class="headerText"> </div>
-        <form name="form_goback" action="index.php" method="post">
+        <form name="form_goback" action="../../index.php" method="post">
 		    <input type="hidden" name="btype" value="">
 		</form>
     </header>
@@ -235,7 +235,7 @@
             </table>
             <?php 
 				$type==2 ? include ROOT.'boardController/invite.php' : 0 ;
-				include ROOT.'loading.php' ;
+				include ROOT.'boardController/loading.php' ;
 			?>
     </div>
     

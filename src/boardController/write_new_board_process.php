@@ -2,7 +2,7 @@
     <?php
     include '../config/define.php' ;
     include ROOT.'config/dbconn.php' ;
-    include ROOT.'lib/log.php';
+    include ROOT.'../lib/log.php';
     
     date_default_timezone_set("Asia/Seoul");
     $time_now = date("Y-m-d H:i:s") ;
@@ -38,7 +38,7 @@
                 $target_dir = "/uploadimg/";
                 $file = $_FILES['uploadfile']['name'][0];
                 $pathinfo = pathinfo($file);
-                $filename = $pathinfo['filename'];
+                $filename = urlencode($pathinfo['filename']);
                 $ext = $pathinfo['extension'];
                 $temp_name = $_FILES['uploadfile']['tmp_name'][0] ;
                 

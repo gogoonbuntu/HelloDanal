@@ -80,7 +80,7 @@
 
 	<header class="title_b">번개모임</header>
 	
-	<form action="detail.php" name="toDetail" method="post">
+	<form action="src/boardController/detail.php" name="toDetail" method="post">
 	    <input type="hidden" name="input_idx">
     </form>
 	    
@@ -91,7 +91,7 @@
 		</table>
 	</div>
 	
-	<form action="write_new_board.php" name="new" method="post">
+	<form action="src/boardController/write_new_board.php" name="new" method="post">
 	    <input type=hidden name="btype" value="">
     	<button type="button" class="new_b" onclick="new_submit();">
     		+
@@ -135,7 +135,7 @@
         btype = a;
         if(a==3){
             $.ajax({
-        		url: "mypage.php",
+        		url: "src/boardController/mypage.php",
         		type: "post",
         		data: {},
         		success: function(data) {

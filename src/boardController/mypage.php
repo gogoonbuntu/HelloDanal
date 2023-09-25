@@ -137,7 +137,7 @@
     function godetail(i){
         var form = document.createElement("form");
         form.setAttribute('method', 'post');
-	    form.setAttribute('action', "detail.php");
+	    form.setAttribute('action', "src/boardController/detail.php");
 	    document.charset = "utf-8";
 	
 

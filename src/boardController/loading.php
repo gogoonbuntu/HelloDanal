@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="../css/invite.css">
+<!-- write_new_board 에서 쓰이는 로딩 페이지 -->
+
+<link rel="stylesheet" href="../../css/invite.css">
 <div id="loading" class="hide">
-    <img src="../img/danaly run.gif">
+    <img src="../../img/danaly run.gif">
     <div id="loading_text">Loading...</div>
 </div>
 <style>

@@ -1,12 +1,12 @@
 <?php
     include '../config/define.php' ;
 	include ROOT.'config/dbconn.php';
-	include ROOT.'lib/log.php';
+	include ROOT.'../lib/log.php';
 	$bno = $_POST['seqno'];
 	$cno = $_POST['comment_seqno'];
 	$sql = "delete FROM TABLE_COMMENT where seqno='$cno';";
 	
-	push_log($_COOKIE['user_ud']);
+    push_log($_SERVER, $author.'DELETE COMMENT ON '.$bno, __LINE__);
 	
 if (!mysqli_query($conn,$sql))
     {
@@ -27,7 +27,7 @@ if (!mysqli_query($conn,$sql))
     var form = document.createElement("form");
         
         form.setAttribute('method', 'post');
-	    form.setAttribute('action', "detail.php");
+	    form.setAttribute('action', "../boardController/detail.php");
 	    document.charset = "utf-8";
 	
 

@@ -78,8 +78,8 @@
 <head>
     <meta charset="euc-kr">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/detail.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/detail.css">
     
     <title>상세페이지</title>
 </head>
@@ -87,10 +87,10 @@
     <body onload="refreshreplylist()">
     <header>
         <div class="goback" onclick="goback()">
-            <img src="img/goback.png">
+            <img src="../../img/goback.png">
         </div>
         <div class="headerText"><?php echo $board_name ?></div>
-        <form name="form_goback" action="index.php" method="post">
+        <form name="form_goback" action="../../index.php" method="post">
 		    <input type="hidden" name="btype" value="">
 		</form>
     </header>
@@ -275,7 +275,7 @@
                 <img src="img/up.svg" style= "vertical-align:middle;"> 맨 위로</a>
             </div>
             <div class="box2" onclick="goComment()">
-                <img id="functional" src="img/comment.png" style= "vertical-align:middle;"> 댓글</a>
+                <img id="functional" src="../../img/comment.png" style= "vertical-align:middle;"> 댓글</a>
             </div>
             
         </div>
@@ -351,7 +351,7 @@
         var form = document.createElement("form");
         var bno = '<?php echo $bno ?>';
         form.setAttribute('method', 'post');
-	    form.setAttribute('action', "delete_comment.php");
+	    form.setAttribute('action', "../commentController/delete_comment.php");
 	    document.charset = "utf-8";
 	    var hiddenField = document.createElement('input');
 	    hiddenField.setAttribute('type', 'hidden');
@@ -387,7 +387,7 @@
         var form = document.createElement("form");
         
         form.setAttribute('method', 'post');
-	    form.setAttribute('action', "write_comment.php");
+	    form.setAttribute('action', "../commentController/write_comment.php");
 	    document.charset = "utf-8";
 	    for ( var key in params) {
 

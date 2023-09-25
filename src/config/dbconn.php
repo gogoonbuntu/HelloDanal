@@ -23,7 +23,8 @@
     $dbname = "tmddud333";
 	$db = mysqli_connect($host, $id, $pw, $dbname, $port);
 	$db->set_charset("utf8");
-	echo "this";
+	$conn = $db;
+
 	function mq($sql)
 	{
 		global $db;
