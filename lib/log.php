@@ -1,7 +1,7 @@
 <?php
 $now = getdate();
 $today = $now['year']."_".$now['mon']."_".$now['mday'];
-$log_filename = ROOT.'logs/'.$today.'.log';
+$log_filename = ROOT.'../logs/'.$today.'.log';
 
 //push_log($_SERVER, $_COOKIE['user_id']." ENTER ".$board['title']."(".$bno.")", __LINE__);
 

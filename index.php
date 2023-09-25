@@ -1,6 +1,6 @@
 <?php
-    include "config/dbconn.php" ;
-    include "config/define.php" ;
+    include "src/config/define.php" ;
+    include "src/config/dbconn.php" ;
     
     $sql_market = "SELECT TABLE_BOARD.*,TABLE_MARKET.price,TABLE_MARKET.status,TABLE_IMAGE.imgsrc FROM TABLE_BOARD join TABLE_MARKET join TABLE_IMAGE on TABLE_MARKET.board_seqno  = TABLE_BOARD.seqno and TABLE_BOARD.seqno=TABLE_IMAGE.board_seqno;" ;
     $sql_food = "SELECT a.*, (SELECT COUNT(*) AS cnt FROM TABLE_COMMENT WHERE TABLE_COMMENT.board_seqno = a.seqno) as Totalcomment FROM (SELECT TABLE_BOARD.*,TABLE_FOOD.likes,TABLE_FOOD.location,TABLE_FOOD.distance,TABLE_IMAGE.imgsrc FROM TABLE_BOARD inner join TABLE_FOOD inner join TABLE_IMAGE on TABLE_FOOD.board_seqno = TABLE_BOARD.seqno and TABLE_BOARD.seqno=TABLE_IMAGE.board_seqno) a;" ;
@@ -23,8 +23,8 @@
     
     if ( !isset($_COOKIE['user_id']) ) {
 	    echo "<script>"
-	        ."alert('잘못된 접근입니다');"
-	        ."location.href = 'memberController/login.php' ;"
+	        ."alert('".$_COOKIE['user_id']."노 쿠키. 잘못된 접근입니다');"
+	        ."location.href = 'src/memberController/login.php' ;"
 	        ."</script>" ;
         die('잘못된 접근입니다');
 	    exit;

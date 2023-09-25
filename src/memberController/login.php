@@ -1,12 +1,12 @@
 <?php   
     include '../config/define.php' ;
     include ROOT.'config/dbconn.php';
-    include ROOT.'lib/log.php';
+    include ROOT.'../lib/log.php';
     if( isset($_COOKIE['user_id']) ) {
         push_log($_SERVER, $_COOKIE['user_id']." LOGIN.",__LINE__)
 ?>
     <script>
-        document.location.href = "/index.php" ;
+        //document.location.href = "../../index.php" ;
     </script>
 <?php
     }
@@ -16,14 +16,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>회원가입 및 로그인 사이트</title>
-	<link rel="stylesheet" href="../css/input.css">
+	<link rel="stylesheet" href="../../css/input.css">
 	<meta http-equiv="Expires" content="0"/>
     <meta http-equiv="Pragma" content="no-cache"/>
 </head>
 <body>
     <div id="container">
         <div id="header">
-            <img src="../img/danal full logo.png" width="60px">
+            <img src="../../img/danal full logo.png" width="60px">
         </div>
         <div id="login_title">
             <span class="login_header">로그인</span>
@@ -57,7 +57,7 @@
     </div>
     
     <footer>
-        <img class="login_no" src="../img/character danaly.png">
+        <img class="login_no" src="../../img/character danaly.png">
     </footer>
 </body>
 </html>

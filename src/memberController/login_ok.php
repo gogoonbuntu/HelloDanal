@@ -1,5 +1,5 @@
 <body>
-    <img src="../img/opening.png">
+    <img src="../../img/opening.png">
 </body>
 <style>
     img {
@@ -25,8 +25,8 @@
 <?php
     include '../config/define.php' ;
 	include ROOT.'config/dbconn.php';
-	include ROOT."lib/password.php";
-	include ROOT."lib/log.php";
+	include ROOT."../lib/password.php";
+	include ROOT."../lib/log.php";
 	if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 	    echo "<script>"
 	        ."alert('잘못된 접근입니다');"
@@ -62,7 +62,7 @@
             function setCookie(name, value, expiredays) {
                 var date = new Date();
                 date.setDate(date.getDate() + expiredays);
-                document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
+                document.cookie = escape(name) + "=" + escape(value) + "; path=/; expires=" + date.toUTCString();
             }
             
             setCookie('user_id', user_id, 30);
@@ -70,7 +70,7 @@
             setCookie('myidx', myidx, 30);
             setTimeout(function(){
                 alert(user_id + '님 로그인되었습니다.');
-                location.href='../index.php';}, 1000);
+                location.href='../../index.php';}, 1000);
         </script>
         <?php
     }
