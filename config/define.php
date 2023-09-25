@@ -1,4 +1,4 @@
 <?php
-    define('ROOT', $_SERVER['HTTP_HOST']."/");
-    echo("ROOT: ".ROOT); 
+    define('ROOT', $_SERVER['DOCUMENT_ROOT']."/");
+    //echo("ROOT: ".ROOT); 
 ?>

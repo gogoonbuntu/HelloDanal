@@ -1,5 +1,5 @@
 <body>
-    <img src="./img/opening.png">
+    <img src="../img/opening.png">
 </body>
 <style>
     img {
@@ -25,7 +25,7 @@
 <?php
     include '../config/define.php' ;
 	include ROOT.'config/dbconn.php';
-	include ROOT."memberController/password.php";
+	include ROOT."lib/password.php";
 	include ROOT."lib/log.php";
 	if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 	    echo "<script>"
@@ -70,7 +70,7 @@
             setCookie('myidx', myidx, 30);
             setTimeout(function(){
                 alert(user_id + '님 로그인되었습니다.');
-                location.href='index.php';}, 1000);
+                location.href='../index.php';}, 1000);
         </script>
         <?php
     }
